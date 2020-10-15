@@ -1,0 +1,27 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend de Accounting record",
+  "main": "Index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Jhon, Laura, Sofia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jhon-adonis/equipo3_cm_ppi2020/projects/1"
+  },
+  "homepage": "https://github.com/Jhon-adonis/equipo3_cm_ppi2020",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
