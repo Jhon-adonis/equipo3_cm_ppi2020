@@ -8,3 +8,6 @@ app.get('/', function (req, res) {
 app.listen(8080, function () {
     console.log("El servidor está en uso. (localHost8080)");
 });
+app.listen(8080, function () {
+    console.log("El servidor está en uso. (localHost8080)");
+});
