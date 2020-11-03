@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "proveedor": "Ashien",
+        "nombre": "Beef - Baby, Liver",
+        "cantidad": 77,
+        "codigo": 671,
+        "valor":1000
+    },
+    {
+        "id": 2,
+        "proveedor": "Terza",
+        "nombre": "Rice Pilaf, Dry,package",
+        "cantidad": 22,
+        "codigo": 692,
+        "valor":1000
+    },
+    {
+        "id": 3,
+        "proveedor": "Edward",
+        "nombre": "Flour - Strong",
+        "cantidad": 43,
+        "codigo": 489,
+        "valor":1000
+    },
+    {
+        "id": 4,
+        "proveedor": "Desi",
+        "nombre": "Cinnamon - Stick",
+        "cantidad": 32,
+        "codigo": 296,
+        "valor":1000
+    },
+    {
+        "id": 5,
+        "proveedor": "Felita",
+        "nombre": "Lamb Rack - Ontario",
+        "cantidad": 64,
+        "codigo": 523,
+        "valor":1000
+    },
+    {
+        "id": 6,
+        "proveedor": "Salaidh",
+        "nombre": "Mustard Prepared",
+        "cantidad": 53,
+        "codigo": 279,
+        "valor":1000
+    },
+    {
+        "id": 7,
+        "proveedor": "Sutherlan",
+        "nombre": "Tray - 16in Rnd Blk",
+        "cantidad": 19,
+        "codigo": 792,
+        "valor":1000
+    },
+    {
+        "id": 8,
+        "proveedor": "Margret",
+        "nombre": "Parsley - Fresh",
+        "cantidad": 100,
+        "codigo": 980,
+        "valor":1000
+    },
+    {
+        "id": 9,
+        "proveedor": "Lianna",
+        "nombre": "Wine - Rosso Toscano Igt",
+        "cantidad": 0,
+        "codigo": 624,
+        "valor":1000
+    },
+    {
+        "id": 10,
+        "proveedor": "Zenia",
+        "nombre": "Beans - Black Bean, Dry",
+        "cantidad": 0,
+        "codigo": 842,
+        "valor":1000
+    }
+]

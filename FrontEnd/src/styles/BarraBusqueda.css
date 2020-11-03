@@ -1,0 +1,12 @@
+.buscar-icono {
+    background: url('../assets/Search.svg') no-repeat scroll 7px 7px;
+    padding-left: 30px;
+    ;
+    background-size: 1.2em;
+}
+
+.buscar-icono:focus {
+    background: none;
+    padding-left: none;
+    background-size: none;
+}
