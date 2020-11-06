@@ -5,6 +5,7 @@
  * Precio
  * Cantidad
  * Codigo
+ error que nos dijo martha ya esta listo 
  */
 
 import React from 'react';
