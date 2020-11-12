@@ -102,7 +102,7 @@ function CrearProducto() {
 					onDescartar={() => history.push('/proveedores')}
 					onGuardar={() => alert('NO IMPLEMENTADO')}
 				/>
-				</div>
+				
 			</div>
 		</>
 	);
