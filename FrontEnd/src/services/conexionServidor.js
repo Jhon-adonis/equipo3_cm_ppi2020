@@ -8,6 +8,7 @@
  * Por lo cual, crearsolo de prueba y para mostrar la funcionalidad/fidelidad.
  *
  * EL OBJETIVO ES QUE SOLO TOQUES ESTE ARCHIVO. LOS D
+ todo funciona 
  */
 
 import Clientes from './Clientes.json';

@@ -97,6 +97,12 @@ function CrearProducto() {
 					onChange={(e) => setCodigo(e.target.value)}
 					className="form-control formulario-input mb-4"
 				/>
+				</div>
+				<DescartarGuardar
+					onDescartar={() => history.push('/proveedores')}
+					onGuardar={() => alert('NO IMPLEMENTADO')}
+				/>
+				
 			</div>
 		</>
 	);

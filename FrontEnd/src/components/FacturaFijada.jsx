@@ -1,10 +1,6 @@
 /**
- * Producto tiene propiedadeS:
- * Proveedor
- * Nombre
- * Precio
- * Cantidad
- * Codigo
+ solucionado el error
+ 
  */
 
 import React, { useRef, useEffect, useState } from 'react';
