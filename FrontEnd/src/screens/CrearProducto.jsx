@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import BarraNavegacion from '../components/BarraNavegacion';
+import DescartarGuardar from '../components/DescartarGuardar';
 
 function CrearProducto() {
 	const history = useHistory();
