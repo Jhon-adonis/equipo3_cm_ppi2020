@@ -1,4 +1,4 @@
-(function (global, factory) {
+/*(function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('jquery')) :
     typeof define === 'function' && define.amd ? define(['exports', 'jquery'], factory) :
     (global = global || self, factory(global.bootstrap = {}, global.jQuery));
@@ -2962,9 +2962,9 @@
         
         enabled: true,
         /** @prop {ModifierFn} */
-        fn: arrow,
+       /* fn: arrow,
         /** @prop {String|HTMLElement} element='[x-arrow]' - Selector or node used as arrow */
-        element: '[x-arrow]'
+       /* element: '[x-arrow]'
       },
   
       /**
@@ -2978,31 +2978,31 @@
        * @memberof modifiers
        * @inner
        */
-      flip: {
-        /** @prop {number} order=600 - Index used to define the order of execution */
+      /*
+      flip: 
+        /** @prop {number} order=600 - Index used to define the order of execution 
         order: 600,
-        /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+         @prop {Boolean} enabled=true - Whether the modifier is enabled or not 
         enabled: true,
-        /** @prop {ModifierFn} */
+        /** @prop {ModifierFn} 
         fn: flip,
-        /**
-         * @prop {String|Array} behavior='flip'
+        /** @prop {String|Array} behavior='flip'
          * The behavior used to change the popper's placement. It can be one of
          * `flip`, `clockwise`, `counterclockwise` or an array with a list of valid
          * placements (with optional variations)
-         */
+         
         behavior: 'flip',
         /**
          * @prop {number} padding=5
          * The popper will flip if it hits the edges of the `boundariesElement`
-         */
+         
         padding: 5,
         /**
          * @prop {String|HTMLElement} boundariesElement='viewport'
          * The element which will define the boundaries of the popper position.
          * The popper will never be placed outside of the defined boundaries
          * (except if `keepTogether` is enabled)
-         */
+         
         boundariesElement: 'viewport'
       },
   
@@ -3012,13 +3012,13 @@
        * the reference element.
        * @memberof modifiers
        * @inner
-       */
+       
       inner: {
-        /** @prop {number} order=700 - Index used to define the order of execution */
+        /** @prop {number} order=700 - Index used to define the order of execution 
         order: 700,
-        /** @prop {Boolean} enabled=false - Whether the modifier is enabled or not */
+        /** @prop {Boolean} enabled=false - Whether the modifier is enabled or not 
         enabled: false,
-        /** @prop {ModifierFn} */
+        /** @prop {ModifierFn} 
         fn: inner
       },
   
@@ -3031,13 +3031,13 @@
        * Requires the `preventOverflow` modifier before it in order to work.
        * @memberof modifiers
        * @inner
-       */
+       
       hide: {
-        /** @prop {number} order=800 - Index used to define the order of execution */
+        /** @prop {number} order=800 - Index used to define the order of execution 
         order: 800,
-        /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+        /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not 
         enabled: true,
-        /** @prop {ModifierFn} */
+        /** @prop {ModifierFn} 
         fn: hide
       },
   
@@ -3055,31 +3055,31 @@
        *
        * @memberof modifiers
        * @inner
-       */
+       
       computeStyle: {
-        /** @prop {number} order=850 - Index used to define the order of execution */
+        /** @prop {number} order=850 - Index used to define the order of execution 
         order: 850,
-        /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+        /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not 
         enabled: true,
-        /** @prop {ModifierFn} */
+        /** @prop {ModifierFn} /
         fn: computeStyle,
         /**
          * @prop {Boolean} gpuAcceleration=true
          * If true, it uses the CSS 3D transformation to position the popper.
          * Otherwise, it will use the `top` and `left` properties
-         */
+      
         gpuAcceleration: true,
         /**
          * @prop {string} [x='bottom']
          * Where to anchor the X axis (`bottom` or `top`). AKA X offset origin.
          * Change this if your popper should grow in a direction different from `bottom`
-         */
+        
         x: 'bottom',
         /**
          * @prop {string} [x='left']
          * Where to anchor the Y axis (`left` or `right`). AKA Y offset origin.
          * Change this if your popper should grow in a direction different from `right`
-         */
+         
         y: 'right'
       },
   
@@ -3097,22 +3097,22 @@
        *
        * @memberof modifiers
        * @inner
-       */
+       
       applyStyle: {
-        /** @prop {number} order=900 - Index used to define the order of execution */
+        /** @prop {number} order=900 - Index used to define the order of execution 
         order: 900,
-        /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+        /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not 
         enabled: true,
-        /** @prop {ModifierFn} */
+        /** @prop {ModifierFn} 
         fn: applyStyle,
-        /** @prop {Function} */
+        /** @prop {Function} 
         onLoad: applyStyleOnLoad,
         /**
          * @deprecated since version 1.10.0, the property moved to `computeStyle` modifier
          * @prop {Boolean} gpuAcceleration=true
          * If true, it uses the CSS 3D transformation to position the popper.
          * Otherwise, it will use the `top` and `left` properties
-         */
+         
         gpuAcceleration: undefined
       }
     };
@@ -3148,42 +3148,39 @@
      *   }
      * })
      * ```
-     * @type {Object}
-     * @static
-     * @memberof Popper
-     */
+     * 
     var Defaults = {
       /**
        * Popper's placement.
-       * @prop {Popper.placements} placement='bottom'
-       */
+       * ='bottom'
+       
       placement: 'bottom',
   
       /**
        * Set this to true if you want popper to position it self in 'fixed' mode
-       * @prop {Boolean} positionFixed=false
-       */
+       * =false
+       
       positionFixed: false,
   
       /**
        * Whether events (resize, scroll) are initially enabled.
-       * @prop {Boolean} eventsEnabled=true
-       */
+       *=true
+       
       eventsEnabled: true,
   
       /**
        * Set to true if you want to automatically remove the popper when
-       * you call the `destroy` method.
-       * @prop {Boolean} removeOnDestroy=false
-       */
+        you call the `destroy` method.
+       =false
+       
       removeOnDestroy: false,
   
-      /**
-       * Callback called when the popper is created.<br />
-       * By default, it is set to no-op.<br />
-       * Access Popper.js instance with `data.instance`.
-       * @prop {onCreate}
-       */
+    
+        Callback called when the popper is created.<br />
+        By default, it is set to no-op.<br />
+        Access Popper.js instance with `data.instance`.
+       /* 
+       
       onCreate: function onCreate() {},
   
       /**
@@ -3192,39 +3189,33 @@
        * updates.<br />
        * By default, it is set to no-op.<br />
        * Access Popper.js instance with `data.instance`.
-       * @prop {onUpdate}
-       */
+       * 
+       
       onUpdate: function onUpdate() {},
   
       /**
        * List of modifiers used to modify the offsets before they are applied to the popper.
        * They provide most of the functionalities of Popper.js.
-       * @prop {modifiers}
-       */
+       * 
+       
       modifiers: modifiers
     };
   
     /**
-     * @callback onCreate
-     * @param {dataObject} data
-     */
-  
+     * 
+    
+
     /**
-     * @callback onUpdate
-     * @param {dataObject} data
-     */
+     * 
+    
   
     // Utils
     // Methods
     var Popper = function () {
       /**
        * Creates a new Popper.js instance.
-       * @class Popper
-       * @param {HTMLElement|referenceObject} reference - The reference element used to position the popper
-       * @param {HTMLElement} popper - The HTML element used as the popper
-       * @param {Object} options - Your custom options to override the ones defined in [Defaults](#defaults)
-       * @return {Object} instance - The generated Popper.js instance
-       */
+       * instance - The generated Popper.js instance
+       
       function Popper(reference, popper) {
         var _this = this;
   
@@ -3318,9 +3309,8 @@
   
         /**
          * Schedules an update. It will run on the next UI update available.
-         * @method scheduleUpdate
-         * @memberof Popper
-         */
+         * @
+         
   
   
         /**
@@ -3332,13 +3322,7 @@
          * and will be removed in v2! Use the PopperUtils module directly instead.
          * Due to the high instability of the methods contained in Utils, we can't
          * guarantee them to follow semver. Use them at your own risk!
-         * @static
-         * @private
-         * @type {Object}
-         * @deprecated since version 1.8
-         * @member Utils
-         * @memberof Popper
-         */
+         * 
   
       }]);
       return Popper;
@@ -3355,25 +3339,17 @@
      * ```
      *
      * NB: This feature isn't supported in Internet Explorer 10.
-     * @name referenceObject
-     * @property {Function} data.getBoundingClientRect
-     * A function that returns a set of coordinates compatible with the native `getBoundingClientRect` method.
-     * @property {number} data.clientWidth
-     * An ES6 getter that will return the width of the virtual reference element.
-     * @property {number} data.clientHeight
+     *
      * An ES6 getter that will return the height of the virtual reference element.
      */
   
   
-    Popper.Utils = (typeof window !== 'undefined' ? window : global).PopperUtils;
-    Popper.placements = placements;
-    Popper.Defaults = Defaults;
-  
+    
     /**
      * ------------------------------------------------------------------------
      * Constants
      * ------------------------------------------------------------------------
-     */
+     
   
     var NAME$4 = 'dropdown';
     var VERSION$4 = '4.3.1';
@@ -3448,12 +3424,12 @@
        * ------------------------------------------------------------------------
        * Class Definition
        * ------------------------------------------------------------------------
-       */
+       
   
     };
   
     var Dropdown =
-    /*#__PURE__*/
+    /*#__PURE__
     function () {
       function Dropdown(element, config) {
         this._element = element;
@@ -3499,7 +3475,7 @@
           /**
            * Check for Popper dependency
            * Popper - https://popper.js.org
-           */
+           
           if (typeof Popper === 'undefined') {
             throw new TypeError('Bootstrap\'s dropdowns require Popper.js (https://popper.js.org/)');
           }
@@ -3870,7 +3846,7 @@
      * ------------------------------------------------------------------------
      * Data Api implementation
      * ------------------------------------------------------------------------
-     */
+     
   
   
     $(document).on(Event$4.KEYDOWN_DATA_API, Selector$4.DATA_TOGGLE, Dropdown._dataApiKeydownHandler).on(Event$4.KEYDOWN_DATA_API, Selector$4.MENU, Dropdown._dataApiKeydownHandler).on(Event$4.CLICK_DATA_API + " " + Event$4.KEYUP_DATA_API, Dropdown._clearMenus).on(Event$4.CLICK_DATA_API, Selector$4.DATA_TOGGLE, function (event) {
@@ -3885,7 +3861,7 @@
      * ------------------------------------------------------------------------
      * jQuery
      * ------------------------------------------------------------------------
-     */
+     
   
     $.fn[NAME$4] = Dropdown._jQueryInterface;
     $.fn[NAME$4].Constructor = Dropdown;
@@ -3899,7 +3875,7 @@
      * ------------------------------------------------------------------------
      * Constants
      * ------------------------------------------------------------------------
-     */
+     
   
     var NAME$5 = 'modal';
     var VERSION$5 = '4.3.1';
@@ -3953,12 +3929,12 @@
        * ------------------------------------------------------------------------
        * Class Definition
        * ------------------------------------------------------------------------
-       */
+       
   
     };
   
     var Modal =
-    /*#__PURE__*/
+    /*#__PURE__
     function () {
       function Modal(element, config) {
         this._config = this._getConfig(config);
@@ -4080,7 +4056,7 @@
          * `document` has 2 events `Event.FOCUSIN` and `Event.CLICK_DATA_API`
          * Do not move `document` in `htmlElements` array
          * It will remove `Event.CLICK_DATA_API` event that should remain
-         */
+         /
   
         $(document).off(Event$5.FOCUSIN);
         $.removeData(this._element, DATA_KEY$5);
@@ -4429,7 +4405,7 @@
      * ------------------------------------------------------------------------
      * Data Api implementation
      * ------------------------------------------------------------------------
-     */
+     /
   
   
     $(document).on(Event$5.CLICK_DATA_API, Selector$5.DATA_TOGGLE, function (event) {
@@ -4467,7 +4443,7 @@
      * ------------------------------------------------------------------------
      * jQuery
      * ------------------------------------------------------------------------
-     */
+     
   
     $.fn[NAME$5] = Modal._jQueryInterface;
     $.fn[NAME$5].Constructor = Modal;
@@ -4482,7 +4458,7 @@
      * Bootstrap (v4.3.1): tools/sanitizer.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      * --------------------------------------------------------------------------
-     */
+     
     var uriAttrs = ['background', 'cite', 'href', 'itemtype', 'longdesc', 'poster', 'src', 'xlink:href'];
     var ARIA_ATTRIBUTE_PATTERN = /^aria-[\w-]*$/i;
     var DefaultWhitelist = {
@@ -4521,7 +4497,7 @@
        * A pattern that recognizes a commonly useful subset of URLs that are safe.
        *
        * Shoutout to Angular 7 https://github.com/angular/angular/blob/7.2.4/packages/core/src/sanitization/url_sanitizer.ts
-       */
+       *
   
     };
     var SAFE_URL_PATTERN = /^(?:(?:https?|mailto|ftp|tel|file):|[^&:/?#]*(?:[/?#]|$))/gi;
@@ -4529,7 +4505,7 @@
      * A pattern that matches safe data URLs. Only matches image, video and audio types.
      *
      * Shoutout to Angular 7 https://github.com/angular/angular/blob/7.2.4/packages/core/src/sanitization/url_sanitizer.ts
-     */
+     *
   
     var DATA_URL_PATTERN = /^data:(?:image\/(?:bmp|gif|jpeg|jpg|png|tiff|webp)|video\/(?:mpeg|mp4|ogg|webm)|audio\/(?:mp3|oga|ogg|opus));base64,[a-z0-9+/]+=*$/i;
   
@@ -4602,7 +4578,7 @@
      * ------------------------------------------------------------------------
      * Constants
      * ------------------------------------------------------------------------
-     */
+     *
   
     var NAME$6 = 'tooltip';
     var VERSION$6 = '4.3.1';
@@ -4683,22 +4659,17 @@
       FOCUS: 'focus',
       CLICK: 'click',
       MANUAL: 'manual'
-      /**
-       * ------------------------------------------------------------------------
-       * Class Definition
-       * ------------------------------------------------------------------------
-       */
-  
+      
     };
   
     var Tooltip =
-    /*#__PURE__*/
+    /*#__PURE__
     function () {
       function Tooltip(element, config) {
         /**
          * Check for Popper dependency
          * Popper - https://popper.js.org
-         */
+         
         if (typeof Popper === 'undefined') {
           throw new TypeError('Bootstrap\'s tooltips require Popper.js (https://popper.js.org/)');
         } // private
@@ -4856,10 +4827,8 @@
               return _this._handlePopperPlacementChange(data);
             }
           });
-          $(tip).addClass(ClassName$6.SHOW); // If this is a touch-enabled device we add extra
-          // empty mouseover listeners to the body's immediate children;
-          // only needed because of broken event delegation on iOS
-          // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
+          $(tip).addClass(ClassName$6.SHOW); 
+          
   
           if ('ontouchstart' in document.documentElement) {
             $(document.body).children().on('mouseover', null, $.noop);
@@ -4969,7 +4938,7 @@
   
       _proto.setElementContent = function setElementContent($element, content) {
         if (typeof content === 'object' && (content.nodeType || content.jquery)) {
-          // Content is a DOM node or a jQuery
+          
           if (this.config.html) {
             if (!$(content).parent().is($element)) {
               $element.empty().append(content);
@@ -5233,7 +5202,7 @@
         this.hide();
         this.show();
         this.config.animation = initConfigAnimation;
-      } // Static
+      } 
       ;
   
       Tooltip._jQueryInterface = function _jQueryInterface(config) {
@@ -5300,11 +5269,7 @@
   
       return Tooltip;
     }();
-    /**
-     * ------------------------------------------------------------------------
-     * jQuery
-     * ------------------------------------------------------------------------
-     */
+   
   
   
     $.fn[NAME$6] = Tooltip._jQueryInterface;
@@ -5315,11 +5280,7 @@
       return Tooltip._jQueryInterface;
     };
   
-    /**
-     * ------------------------------------------------------------------------
-     * Constants
-     * ------------------------------------------------------------------------
-     */
+   
   
     var NAME$7 = 'popover';
     var VERSION$7 = '4.3.1';
@@ -5359,16 +5320,12 @@
       FOCUSOUT: "focusout" + EVENT_KEY$7,
       MOUSEENTER: "mouseenter" + EVENT_KEY$7,
       MOUSELEAVE: "mouseleave" + EVENT_KEY$7
-      /**
-       * ------------------------------------------------------------------------
-       * Class Definition
-       * ------------------------------------------------------------------------
-       */
+   
   
     };
   
     var Popover =
-    /*#__PURE__*/
+    /*#__PURE__
     function (_Tooltip) {
       _inheritsLoose(Popover, _Tooltip);
   
@@ -5405,7 +5362,7 @@
   
         this.setElementContent($tip.find(Selector$7.CONTENT), content);
         $tip.removeClass(ClassName$7.FADE + " " + ClassName$7.SHOW);
-      } // Private
+      } 
       ;
   
       _proto._getContent = function _getContent() {
@@ -5419,7 +5376,7 @@
         if (tabClass !== null && tabClass.length > 0) {
           $tip.removeClass(tabClass.join(''));
         }
-      } // Static
+      } 
       ;
   
       Popover._jQueryInterface = function _jQueryInterface(config) {
@@ -5449,7 +5406,7 @@
   
       _createClass(Popover, null, [{
         key: "VERSION",
-        // Getters
+      
         get: function get() {
           return VERSION$7;
         }
@@ -5487,12 +5444,7 @@
   
       return Popover;
     }(Tooltip);
-    /**
-     * ------------------------------------------------------------------------
-     * jQuery
-     * ------------------------------------------------------------------------
-     */
-  
+ 
   
     $.fn[NAME$7] = Popover._jQueryInterface;
     $.fn[NAME$7].Constructor = Popover;
@@ -5502,11 +5454,7 @@
       return Popover._jQueryInterface;
     };
   
-    /**
-     * ------------------------------------------------------------------------
-     * Constants
-     * ------------------------------------------------------------------------
-     */
+    
   
     var NAME$8 = 'scrollspy';
     var VERSION$8 = '4.3.1';
@@ -5548,16 +5496,12 @@
     var OffsetMethod = {
       OFFSET: 'offset',
       POSITION: 'position'
-      /**
-       * ------------------------------------------------------------------------
-       * Class Definition
-       * ------------------------------------------------------------------------
-       */
+     
   
     };
   
     var ScrollSpy =
-    /*#__PURE__*/
+    
     function () {
       function ScrollSpy(element, config) {
         var _this = this;
@@ -5576,12 +5520,12 @@
         this.refresh();
   
         this._process();
-      } // Getters
+      } 
   
   
       var _proto = ScrollSpy.prototype;
   
-      // Public
+      
       _proto.refresh = function refresh() {
         var _this2 = this;
   
@@ -5604,7 +5548,7 @@
             var targetBCR = target.getBoundingClientRect();
   
             if (targetBCR.width || targetBCR.height) {
-              // TODO (fat): remove sketch reliance on jQuery position/offset
+             
               return [$(target)[offsetMethod]().top + offsetBase, targetSelector];
             }
           }
@@ -5720,9 +5664,8 @@
           $link.closest(Selector$8.DROPDOWN).find(Selector$8.DROPDOWN_TOGGLE).addClass(ClassName$8.ACTIVE);
           $link.addClass(ClassName$8.ACTIVE);
         } else {
-          // Set triggered link as active
-          $link.addClass(ClassName$8.ACTIVE); // Set triggered links parents as active
-          // With both <ul> and <nav> markup a parent is the previous sibling of any nav ancestor
+          
+          $link.addClass(ClassName$8.ACTIVE); 
   
           $link.parents(Selector$8.NAV_LIST_GROUP).prev(Selector$8.NAV_LINKS + ", " + Selector$8.LIST_ITEMS).addClass(ClassName$8.ACTIVE); // Handle special case when .nav-link is inside .nav-item
   
@@ -5740,7 +5683,7 @@
         }).forEach(function (node) {
           return node.classList.remove(ClassName$8.ACTIVE);
         });
-      } // Static
+      } 
       ;
   
       ScrollSpy._jQueryInterface = function _jQueryInterface(config) {
@@ -5778,11 +5721,7 @@
   
       return ScrollSpy;
     }();
-    /**
-     * ------------------------------------------------------------------------
-     * Data Api implementation
-     * ------------------------------------------------------------------------
-     */
+    
   
   
     $(window).on(Event$8.LOAD_DATA_API, function () {
@@ -5795,11 +5734,7 @@
         ScrollSpy._jQueryInterface.call($spy, $spy.data());
       }
     });
-    /**
-     * ------------------------------------------------------------------------
-     * jQuery
-     * ------------------------------------------------------------------------
-     */
+  
   
     $.fn[NAME$8] = ScrollSpy._jQueryInterface;
     $.fn[NAME$8].Constructor = ScrollSpy;
@@ -5809,11 +5744,6 @@
       return ScrollSpy._jQueryInterface;
     };
   
-    /**
-     * ------------------------------------------------------------------------
-     * Constants
-     * ------------------------------------------------------------------------
-     */
   
     var NAME$9 = 'tab';
     var VERSION$9 = '4.3.1';
@@ -5843,25 +5773,21 @@
       DATA_TOGGLE: '[data-toggle="tab"], [data-toggle="pill"], [data-toggle="list"]',
       DROPDOWN_TOGGLE: '.dropdown-toggle',
       DROPDOWN_ACTIVE_CHILD: '> .dropdown-menu .active'
-      /**
-       * ------------------------------------------------------------------------
-       * Class Definition
-       * ------------------------------------------------------------------------
-       */
+     
   
     };
   
     var Tab =
-    /*#__PURE__*/
+    
     function () {
       function Tab(element) {
         this._element = element;
-      } // Getters
+      } 
   
   
       var _proto = Tab.prototype;
   
-      // Public
+     
       _proto.show = function show() {
         var _this = this;
   
@@ -5924,7 +5850,7 @@
       _proto.dispose = function dispose() {
         $.removeData(this._element, DATA_KEY$9);
         this._element = null;
-      } // Private
+      } 
       ;
   
       _proto._activate = function _activate(element, container, callback) {
@@ -5986,7 +5912,7 @@
         if (callback) {
           callback();
         }
-      } // Static
+      } 
       ;
   
       Tab._jQueryInterface = function _jQueryInterface(config) {
@@ -6018,23 +5944,14 @@
   
       return Tab;
     }();
-    /**
-     * ------------------------------------------------------------------------
-     * Data Api implementation
-     * ------------------------------------------------------------------------
-     */
-  
+   
   
     $(document).on(Event$9.CLICK_DATA_API, Selector$9.DATA_TOGGLE, function (event) {
       event.preventDefault();
   
       Tab._jQueryInterface.call($(this), 'show');
     });
-    /**
-     * ------------------------------------------------------------------------
-     * jQuery
-     * ------------------------------------------------------------------------
-     */
+   
   
     $.fn[NAME$9] = Tab._jQueryInterface;
     $.fn[NAME$9].Constructor = Tab;
@@ -6044,11 +5961,7 @@
       return Tab._jQueryInterface;
     };
   
-    /**
-     * ------------------------------------------------------------------------
-     * Constants
-     * ------------------------------------------------------------------------
-     */
+  
   
     var NAME$a = 'toast';
     var VERSION$a = '4.3.1';
@@ -6080,16 +5993,12 @@
     };
     var Selector$a = {
       DATA_DISMISS: '[data-dismiss="toast"]'
-      /**
-       * ------------------------------------------------------------------------
-       * Class Definition
-       * ------------------------------------------------------------------------
-       */
+     
   
     };
   
     var Toast =
-    /*#__PURE__*/
+    
     function () {
       function Toast(element, config) {
         this._element = element;
@@ -6097,12 +6006,12 @@
         this._timeout = null;
   
         this._setListeners();
-      } // Getters
+      } 
   
   
       var _proto = Toast.prototype;
   
-      // Public
+      
       _proto.show = function show() {
         var _this = this;
   
@@ -6166,7 +6075,7 @@
         $.removeData(this._element, DATA_KEY$a);
         this._element = null;
         this._config = null;
-      } // Private
+      } 
       ;
   
       _proto._getConfig = function _getConfig(config) {
@@ -6200,7 +6109,7 @@
         } else {
           complete();
         }
-      } // Static
+      } 
       ;
   
       Toast._jQueryInterface = function _jQueryInterface(config) {
@@ -6244,11 +6153,7 @@
   
       return Toast;
     }();
-    /**
-     * ------------------------------------------------------------------------
-     * jQuery
-     * ------------------------------------------------------------------------
-     */
+   
   
   
     $.fn[NAME$a] = Toast._jQueryInterface;
@@ -6259,12 +6164,7 @@
       return Toast._jQueryInterface;
     };
   
-    /**
-     * --------------------------------------------------------------------------
-     * Bootstrap (v4.3.1): index.js
-     * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
-     * --------------------------------------------------------------------------
-     */
+    
   
     (function () {
       if (typeof $ === 'undefined') {
@@ -6298,5 +6198,5 @@
   
     Object.defineProperty(exports, '__esModule', { value: true });
   
-  }));
+  }));*/
   
