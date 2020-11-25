@@ -103,8 +103,8 @@ function CrearProducto() {
 					onGuardar={() => alert('NO IMPLEMENTADO')}
 				/>
 				
+			</div>
 		
-		</>
 	);
 }
 
