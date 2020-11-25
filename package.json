@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Jhon-adonis/equipo3_cm_ppi2020#readme",
   "dependencies": {
     "bootstrap": "^4.5.3",
+    "cors": "2.8.5",
     "express": "^4.17.1",
     "history": "^5.0.0",
     "mysql": "^2.18.1",
