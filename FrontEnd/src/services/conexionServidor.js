@@ -254,7 +254,7 @@ export const actualizarCliente = async (id, data) => {
 export const eliminarCliente = async (id) => {
 	const { err } = await http_call(
 		`/clientes/eliminar-cliente/${id}`,
-		'DELETE',
+		'DELETE',undefined,
 		{ Authorization: obtenerToken() },
 	);
 	if (err) {
@@ -379,7 +379,7 @@ export const actualizarProveedor = async (id, data) => {
 export const eliminarProveedor = async (id) => {
 	const { err } = await http_call(
 		`/proveedores/eliminar-proveedor/${id}`,
-		'DELETE',
+		'DELETE',undefined,
 		{ Authorization: obtenerToken() },
 	);
 	if (err) {
@@ -537,7 +537,7 @@ export const actualizarProducto = async (id, data) => {
 export const eliminarProducto = async (id) => {
 	const { err } = await http_call(
 		`/productos/eliminar-producto/${id}`,
-		'DELETE',
+		'DELETE',undefined,
 		{ Authorization: obtenerToken() },
 	);
 	if (err) {
@@ -719,7 +719,7 @@ export const actualizarFactura = async (id, data) => {
 export const eliminarFactura = async (id) => {
 	const { err } = await http_call(
 		`/facturas/eliminar-factura/${id}`,
-		'DELETE',
+		'DELETE',undefined,
 		{ Authorization: obtenerToken() },
 	);
 	if (err) {
