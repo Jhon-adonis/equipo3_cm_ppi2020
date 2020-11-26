@@ -1,5 +1,0 @@
-language = "nodejs"
-# run = "cd frontend && npm i"
-#run = "cd frontend && npm start"
-run = "cd backend && npm i"
-#run = "cd backend && npm run dev"

@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import BarraNavegacion from '../components/BarraNavegacion';
 import DescartarGuardar from '../components/DescartarGuardar';
+<<<<<<< HEAD
 import { actualizarProducto, crearProducto } from '../services/conexionServidor';
+=======
+>>>>>>> bd02ad856f64309be39c791f25ecae716e4d233f
 
 function CrearProducto() {
 	const history = useHistory();
@@ -100,6 +103,7 @@ function CrearProducto() {
 					className="form-control formulario-input mb-4"
 				/>
 				<DescartarGuardar
+<<<<<<< HEAD
 						onDescartar={() => history.push('/productos')}
 						onGuardar={() => {
 							if (state?.id === undefined)
@@ -109,6 +113,13 @@ function CrearProducto() {
 						}}
 					/>
 			</div>
+=======
+					onDescartar={() => history.push('/proveedores')}
+					onGuardar={() => alert('NO IMPLEMENTADO')}
+				/>
+				
+			
+>>>>>>> bd02ad856f64309be39c791f25ecae716e4d233f
 		</>
 	);
 }
