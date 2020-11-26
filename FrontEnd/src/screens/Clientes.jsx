@@ -11,9 +11,18 @@ function Clientes() {
 	const { state } = useLocation();
 	const history = useHistory();
 
-	const [clientes, setClientes] = useState(obtenerClientes());
+	const [clientes, setClientes] = useState([]);
 
 	const [clienteFijado, fijarCliente] = useState(null);
+
+	useEffect(()=>{
+		const actualizar = async () => {
+			const clientes = await obtenerClientes()
+			setClientes(clientes);
+		}
+		actualizar();
+	},[])
+
 
 	useEffect(() => {
 		if (

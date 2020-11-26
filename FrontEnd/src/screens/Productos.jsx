@@ -11,8 +11,16 @@ function Productos() {
 	const { state } = useLocation();
 	const history = useHistory();
 
-	const [productos, setProductos] = useState(obtenerProductos());
+	const [productos, setProductos] = useState([]);
 	const [productoFijado, fijarProducto] = useState(null);
+
+	useEffect(()=>{
+		const actualizar = async () => {
+			const productos = await obtenerProductos()
+			setProductos(productos);
+		}
+		actualizar();
+	},[])
 
 	useEffect(() => {
 		if (

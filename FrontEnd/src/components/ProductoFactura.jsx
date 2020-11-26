@@ -3,6 +3,7 @@ import { numberFormatter } from '../services/utils';
 
 const ProductoFactura = ({ producto, selectorCantidad }) => {
 	const [cantidadProducto, setCantidadProducto] = useState(1);
+	console.log(producto,parseFloat(producto.precio))
 	return (
 		<div className="form-row mb-2">
 			<div className="col text-left">{producto.nombre}</div>
@@ -27,8 +28,8 @@ const ProductoFactura = ({ producto, selectorCantidad }) => {
 			</div>
 			<div className="col">
 				{numberFormatter(
-					producto.valor *
-						(isNaN(cantidadProducto) ? 0 : cantidadProducto),
+					parseFloat(producto.precio) *
+						(isNaN(parseInt(cantidadProducto)) ? 0 : parseInt(cantidadProducto)),
 				)}
 			</div>
 		</div>

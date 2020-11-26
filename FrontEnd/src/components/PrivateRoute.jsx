@@ -1,34 +1,47 @@
-/**
- * ESTE ES UNO DE LOS ARCHIVOS QUE SE DEBE CAMBIAR
- * EN LA LINEA 16 COLUMNA 11 CAMBIAR LA VARIABLE DE AUTENTIFICACIÓN POR UNA REAL
- * ADEMAS SE DEBE AÑADIR AL PROTOTIPO UN "CERAR SESIÓN" Y LA FUNCIÓN RESPECTIVA
- */
-
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import {
+	obtenerToken,
+	http_call,
+	guardarUsuario,
+} from '../services/conexionServidor';
 
-function PrivateRoute({ children, ...rest }) {
-	const fakeAuth = {
-		isAuthenticated: window.localStorage.getItem('auth') === 'true',
-	};
-	console.log(fakeAuth);
-	return (
-		<Route
-			{...rest}
-			render={({ location }) =>
-				fakeAuth.isAuthenticated === true ? (
-					children
-				) : (
-					<Redirect
-						to={{
-							pathname: '/inicio',
-							state: { from: location },
-						}}
-					/>
-				)
-			}
-		/>
-	);
-}
+
+const PrivateRoute = ({ path, exact, component }) => {
+	const [cargando, setCargando] = useState(true);
+	const [response, setResponse] = useState(null);
+	const [error, setError] = useState(null);
+	useEffect(() => {
+		const abortController = new AbortController();
+		const perfil = async () => {
+			setCargando(true);
+			const { err, res } = await http_call(
+				'/usuarios/perfil',
+				'GET',
+				undefined,
+				{ Authorization: obtenerToken() },
+				abortController,
+			);
+			setResponse(res);
+			setError(err);
+			setCargando(false);
+		};
+		perfil();
+		return () => abortController.abort();
+	}, []);
+
+	if (cargando) {
+		return <h2>Cargando..</h2>;
+	}
+	if (error) {
+		return <Redirect to="/inicio" />;
+	}
+	if (response) {
+		guardarUsuario(response);
+		return <Route path={path} exact={exact} component={component} />;
+	}
+	return <Redirect to="/inicio" />;
+};
 
 export default PrivateRoute;

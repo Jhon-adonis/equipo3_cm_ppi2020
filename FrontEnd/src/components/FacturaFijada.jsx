@@ -1,6 +1,10 @@
 /**
- solucionado el error
- 
+ * Producto tiene propiedadeS:
+ * Proveedor
+ * Nombre
+ * Precio
+ * Cantidad
+ * Codigo
  */
 
 import React, { useRef, useEffect, useState } from 'react';

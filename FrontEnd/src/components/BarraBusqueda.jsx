@@ -1,5 +1,4 @@
 /**
- * Sofi mira esto
  * Esto me tomo varias horas hacerlo, lo intente hacer de MUCHISIMAS maneras.
  * Quise hacerlo lo más fácil posible, lo más entendible, e incluso busque en internet
  * ejemplos de como la gente hacía esta barra. Ninguno me gusto, ni me parecio lo suficiente

@@ -9,7 +9,7 @@
  *
  */
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import BarraNavegacion from '../components/BarraNavegacion';
 import BarraBusqueda from '../components/BarraBusqueda';
 import Factura from '../components/Factura';
@@ -21,10 +21,21 @@ import Plus from '../assets/Plus.svg';
 function Facturas() {
 	const history = useHistory();
 
-	const [facturas, setFacturas] = useState(obtenerFacturas());
+	const [facturas, setFacturas] = useState([]);
 
 	const [facturaFijado, fijarFactura] = useState(null);
 
+	useEffect(()=>{
+		const actualizar = async () => {
+			const facturas = await obtenerFacturas()
+			setFacturas(facturas);
+		}
+		actualizar();
+	},[])
+
+
+
+	
 	return (
 		<>
 			<BarraNavegacion title={'Facturas'} />

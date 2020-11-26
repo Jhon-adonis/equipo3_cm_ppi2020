@@ -29,33 +29,16 @@ function App() {
 				/>
 				<Route path="/inicio" exact component={InicioSesion} />
 				<Route path="/registro" exact component={Registro} />
-				<Route path="/principal" exact component={Principal} />
+				<PrivateRoute path="/principal" exact component={Principal} />
 
-				<PrivateRoute path="/facturas" exact>
-					<Facturas />
-				</PrivateRoute>
-				<PrivateRoute path="/productos" exact>
-					<Productos />
-				</PrivateRoute>
-				<PrivateRoute path="/proveedores" exact>
-					<Proveedores />
-				</PrivateRoute>
-				<PrivateRoute path="/clientes" exact>
-					<Clientes />
-				</PrivateRoute>
-
-				<PrivateRoute path="/crear-producto" exact>
-					<CrearProducto />
-				</PrivateRoute>
-				<PrivateRoute path="/crear-cliente" exact>
-					<CrearCliente />
-				</PrivateRoute>
-				<PrivateRoute path="/crear-factura" exact>
-					<CrearFactura />
-				</PrivateRoute>
-				<PrivateRoute path="/crear-proveedor" exact>
-					<CrearProveedor />
-				</PrivateRoute>
+				<PrivateRoute component={Facturas} path="/facturas" exact/>
+				<PrivateRoute component={Productos} path="/productos" exact/>
+				<PrivateRoute component={Proveedores} path="/proveedores" exact/>
+				<PrivateRoute component={Clientes} path="/clientes" exact/>
+				<PrivateRoute component={CrearProducto} path="/crear-producto" exact/>
+				<PrivateRoute component={CrearCliente} path="/crear-cliente" exact/>
+				<PrivateRoute component={CrearFactura} path="/crear-factura" exact/>
+				<PrivateRoute component={CrearProveedor} path="/crear-proveedor" exact/>
 
 				<Route path="/" render={() => <h1>Error 404</h1>} />
 			</Switch>

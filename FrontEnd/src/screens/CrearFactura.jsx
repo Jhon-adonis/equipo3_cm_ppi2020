@@ -4,6 +4,7 @@ import Plus from '../assets/Plus.svg';
 import BarraNavegacion from '../components/BarraNavegacion';
 import DescartarGuardar from '../components/DescartarGuardar';
 import ProductoFactura from '../components/ProductoFactura';
+import { actualizarFactura, crearFactura } from '../services/conexionServidor';
 import { numberFormatter } from '../services/utils';
 
 function CrearFactura() {
@@ -143,7 +144,7 @@ function CrearFactura() {
 										state?.cliente === undefined
 											? null
 											: state.cliente,
-									nota: nota
+									nota: nota,
 								});
 							}}
 						>
@@ -167,7 +168,7 @@ function CrearFactura() {
 											state?.cliente === undefined
 												? null
 												: state.cliente,
-										nota: nota
+										nota: nota,
 									});
 								}}
 							>
@@ -195,7 +196,7 @@ function CrearFactura() {
 										productos.reduce(
 											(ac, val, i) =>
 												ac +
-												val.valor *
+												val.precio *
 													cantidadesProductos[i],
 											0,
 										),
@@ -207,7 +208,28 @@ function CrearFactura() {
 					</div>
 					<DescartarGuardar
 						onGuardar={() => {
-							alert('NO IMPLEMENTADO');
+							let mappedProductos = productos.map((p, i) => {
+								return {
+									id: p.id,
+									cantidad: cantidadesProductos[i],
+								};
+							});
+							if (state?.id === undefined)
+								crearFactura({
+									numero: nombre,
+									fecha_vencimiento: fechaVencimiento,
+									nota,
+									cliente: cliente.id,
+									productos: mappedProductos,
+								});
+							else
+								actualizarFactura(state.id, {
+									numero: nombre,
+									fecha_vencimiento: fechaVencimiento,
+									nota,
+									cliente: cliente.id,
+									productos: mappedProductos,
+								});
 						}}
 						onDescartar={() => history.push('/facturas')}
 					/>

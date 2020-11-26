@@ -10,7 +10,15 @@ import { useHistory, useLocation } from 'react-router-dom';
 function Proveedores() {
 	const { state } = useLocation();
 	const history = useHistory();
-	const [proveedores, setProveedores] = useState(obtenerProveedores());
+	const [proveedores, setProveedores] = useState([]);
+
+	useEffect(()=>{
+		const actualizar = async () => {
+			const proveedores = await obtenerProveedores()
+			setProveedores(proveedores);
+		}
+		actualizar();
+	},[])
 
 	const [proveedorFijado, fijarProveedor] = useState(null);
 

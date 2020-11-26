@@ -3,6 +3,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 import DescartarGuardar from '../components/DescartarGuardar';
 import User from '../assets/User.png';
 import BarraNavegacion from '../components/BarraNavegacion';
+import { actualizarCliente, crearCliente } from '../services/conexionServidor';
 
 function CrearCliente() {
 	const { state } = useLocation();
@@ -92,7 +93,22 @@ function CrearCliente() {
 					</div>
 					<DescartarGuardar
 						onDescartar={() => history.push('/clientes')}
-						onGuardar={() => alert('NO IMPLEMENTADO')}
+						onGuardar={() => {
+							if (state?.id === undefined)
+								crearCliente({
+									empresa,
+									nombre,
+									correo,
+									celular,
+								});
+							else
+								actualizarCliente(state.id, {
+									empresa,
+									nombre,
+									correo,
+									celular,
+								});
+						}}
 					/>
 				</div>
 			</div>

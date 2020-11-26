@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Logo from '../assets/Logo.png';
-function Registro() {
+import { IniciarSesion } from '../services/conexionServidor';
+function InicioSesion() {
+
+	const [correo, setCorreo] = useState('');
+	const [contrasena, setContrasena] = useState('');
+
+	const [correoError, setCorreoError] = useState('');
+	const [contrasenaError, setContrasenaError] = useState('');
+
 	const history = useHistory();
 	return (
 		<div className="container h-100">
@@ -15,36 +23,58 @@ function Registro() {
 					/>
 					<h3 className="text-center">Accounting </h3>
 					<h3 className="text-center">Record</h3>
-					<label
-						htmlFor="correo"
-						className="font-weight-bold color-gris-oscuro m-0"
+
+					<label htmlFor="correo" className={`${
+							correoError ? 'text-danger' : ''
+						} font-weight-bold m-0`}
 					>
-						Correo
+						{correoError || 'Correo'}
+					
 					</label>
 					<input
 						type="text"
-						id="correo"
+						value={correo}
+						onChange={e => {setCorreo(e.target.value);setCorreoError(false)}}
 						className="form-control formulario-input mb-4"
 					/>
 					<label
 						htmlFor="contrasena"
-						className="font-weight-bold color-gris-oscuro m-0"
+						className={`${
+							contrasenaError ? 'text-danger' : ''
+						} font-weight-bold m-0`}
 					>
-						Contraseña
+						{contrasenaError || 'Contraseña'}
 					</label>
 					<input
-						type="text"
-						id="contrasena"
+						type="password"
+						value={contrasena}
+						onChange={e => {setContrasena(e.target.value);setContrasenaError(false)}}
 						className="form-control formulario-input mb-4"
 					/>
 					<div className="text-center">
 						<button
 							className="btn btn-lg bg-azul-claro text-white mt-4 mx-auto d-block"
 							style={{ height: '9vh' }}
-							onClick={() => {
-								alert('NO IMPLEMENTADO');
-								window.localStorage.setItem('auth', 'true');
-								history.push('/principal');
+							onClick={async e => {
+								e.preventDefault();
+								const { err,res } = await IniciarSesion(correo, contrasena);
+								if (
+									res?.statusError ===
+									'No existe un usuario con correo'
+								) {
+									setCorreoError('No existe un usuario con ese correo');
+								}else if(res?.statusError ===
+									'Contrasena Incorrecta'){
+										setContrasenaError('Contraseña Incorrecta');
+								}
+								 else if (err) {
+									setCorreoError(
+										'Ocurrio un error, intentalo más tarde',
+									);
+								} else {
+									history.push('/principal');
+								}
+								
 							}}
 						>
 							Iniciar sesión
@@ -64,4 +94,4 @@ function Registro() {
 	);
 }
 
-export default Registro;
+export default InicioSesion;

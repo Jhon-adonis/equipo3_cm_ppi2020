@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import BarraNavegacion from '../components/BarraNavegacion';
+import DescartarGuardar from '../components/DescartarGuardar';
+import { actualizarProducto, crearProducto } from '../services/conexionServidor';
 
 function CrearProducto() {
 	const history = useHistory();
@@ -97,12 +99,15 @@ function CrearProducto() {
 					onChange={(e) => setCodigo(e.target.value)}
 					className="form-control formulario-input mb-4"
 				/>
-				</div>
 				<DescartarGuardar
-					onDescartar={() => history.push('/proveedores')}
-					onGuardar={() => alert('NO IMPLEMENTADO')}
-				/>
-				
+						onDescartar={() => history.push('/productos')}
+						onGuardar={() => {
+							if (state?.id === undefined)
+								crearProducto({ proveedor: proveedor.id, nombre: nombreProducto, precio, cantidad, codigo });
+							else
+								actualizarProducto(state.id, { proveedor: proveedor.id, nombre: nombreProducto, precio, cantidad, codigo });
+						}}
+					/>
 			</div>
 		</>
 	);

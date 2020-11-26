@@ -3,6 +3,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 import DescartarGuardar from '../components/DescartarGuardar';
 import User from '../assets/User.png';
 import BarraNavegacion from '../components/BarraNavegacion';
+import { actualizarProveedor, crearProveedor } from '../services/conexionServidor';
 
 function CrearProveedor() {
 	const { state } = useLocation();
@@ -92,7 +93,22 @@ function CrearProveedor() {
 					</div>
 					<DescartarGuardar
 						onDescartar={() => history.push('/proveedores')}
-						onGuardar={() => alert('NO IMPLEMENTADO')}
+						onGuardar={() => {
+							if (state?.id === undefined)
+								crearProveedor({
+									empresa,
+									nombre,
+									correo,
+									celular,
+								});
+							else
+								actualizarProveedor(state.id, {
+									empresa,
+									nombre,
+									correo,
+									celular,
+								});
+						}}
 					/>
 				</div>
 			</div>
