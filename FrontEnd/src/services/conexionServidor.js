@@ -29,7 +29,7 @@ export const http_call = async (
 		}
 		const timeOutCheck = setTimeout(() => controller.abort(), 15 * 1000);
 		const res = await fetch(
-			'https://accounting-record-backend.herokuapp.com/' + url,
+			'https://accounting-record-backend.herokuapp.com' + url,
 			options,
 		);
 		clearTimeout(timeOutCheck);
