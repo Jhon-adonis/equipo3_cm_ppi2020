@@ -242,7 +242,6 @@ export const actualizarCliente = async (id, data) => {
 		await actualizarClienteCelular(id, data.celular);
 	}
 
-<<<<<<< HEAD
 	return http_call(
 		'/clientes/agregar-cliente',
 		'POST',
@@ -741,100 +740,4 @@ export const crearFactura = async (data) => {
 	} else {
 		alert(`Se creo la factura`);
 	}
-=======
-// import Clientes from './Clientes.json';
-import Facturas from './Facturas.json';
-import Productos from './Productos.json';
-import Proveedores from './Proveedores.json';
-
-const apiUrl = 'https://accounting-record-backend.herokuapp.com/';
-const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjA1Mjc5ODg2LCJleHAiOjIyMTAwNzk4ODZ9.fJL62Y14i8DZTXTR8w-Wm68dYYFM3a8XQ8rtnVOQ9UY';
-
-export const obtenerClientes = () => {
-  fetch(apiUrl + 'clientes/obtener-clientes', {
-    headers: {
-      'Content-type': 'application/json',
-      Authorization: 'Bearer ' + token,
-    },
-    mode: 'cors',
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log('This is your data', data);
-      return data;
-    });
-};
-export const actualizarCliente = (id, data) => {
-  alert('NO IMPLEMENTADO');
-};
-export const eliminarCliente = (id) => {
-  alert('NO IMPLEMENTADO');
-};
-export const crearCliente = (data) => {
-  alert('NO IMPLEMENTADO');
-};
-
-export const obtenerFacturas = () => {
-  fetch(apiUrl + 'clientes/obtener-clientes', {
-    headers: {
-      'Content-type': 'application/json',
-      Authorization: 'Bearer ' + token,
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log('This is your data', data);
-      return data;
-    });
-  return Facturas;
-};
-export const actualizarFactura = (id, data) => {
-  alert('NO IMPLEMENTADO');
-};
-export const eliminarFactura = (id) => {
-  alert('NO IMPLEMENTADO');
-};
-export const crearFactura = (data) => {
-  fetch(apiUrl + 'facturas/agregar-factura', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: 'Bearer ' + token,
-    },
-    body: data,
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log('This is your data', data);
-      return data;
-    });
-};
-
-export const obtenerProductos = () => {
-  return Productos;
-};
-export const actualizarProducto = (id, data) => {
-	// PUT
-  alert('NO IMPLEMENTADO');
-};
-export const eliminarProducto = (id) => {
-  alert('NO IMPLEMENTADO');
-};
-export const crearProducto = (data) => {
-  alert('NO IMPLEMENTADO');
-};
-
-export const obtenerProveedores = () => {
-  return Proveedores;
-};
-export const actualizarProveedor = (id, data) => {
-  alert('NO IMPLEMENTADO');
-};
-export const eliminarProveedor = (id) => {
-  alert('crearMENTADO');
-};
-export const crearProveedor = (data) => {
-  alert('NO IMPLEMENTADO');
->>>>>>> bd02ad856f64309be39c791f25ecae716e4d233f
 };
