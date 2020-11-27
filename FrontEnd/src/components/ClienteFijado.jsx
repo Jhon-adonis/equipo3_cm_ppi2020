@@ -9,10 +9,12 @@
 
 import React, { useRef, useEffect, useState } from 'react';
 import { eliminarCliente } from '../services/conexionServidor';
+import { useHistory } from 'react-router-dom';
 
 function ClienteFijado({ data, deselector }) {
 	const referenciaProducto = useRef(null);
 	const [useDetector, setDetector] = useState(true);
+	const history = useHistory();
 
 	useEffect(() => {
 		if (referenciaProducto === null || !useDetector) {
@@ -87,7 +89,7 @@ function ClienteFijado({ data, deselector }) {
 				<div>
 					<button
 						className="btn btn-light p-0 pr-4"
-						onClick={() => console.error('NOT IMPLEMENTED')}
+						onClick={() => history.push('/crear-Cliente',{id:data.id})}
 					>
 						Actualizar
 					</button>
