@@ -26,13 +26,7 @@ function Factura({ data, selector }) {
 					<div className="float-right">
 						<small>
 							<p className="card-text text-muted">
-								{numberFormatter(
-									data.productos.reduce(
-										(ac, val) =>
-											ac + val.valor * val.cantidad,
-										0,
-									),
-								)}
+								{numberFormatter( data.productos ? data.productos.reduce((ac, val) => ac + val.valor + val.cantidad, 0) : 0)}
 							</p>
 						</small>
 						<small>
