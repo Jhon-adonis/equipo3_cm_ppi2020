@@ -168,7 +168,7 @@ export const obtenerCliente = async (id) => {
 export const actualizarClienteEmpresa = async (id, empresa) => {
 	const { err } = await http_call(
 		`/clientes/actualizar-empresa/${id}`,
-		'PATCH',
+		'PATCH',undefined,
 		{ empresa },
 		{ Authorization: obtenerToken() },
 	);
@@ -194,7 +194,7 @@ export const actualizarClienteNombre = async (id, nombre) => {
 export const actualizarClienteCelular = async (id, celular) => {
 	const { err } = await http_call(
 		`/clientes/actualizar-celular/${id}`,
-		'PATCH',
+		'PATCH',undefined,
 		{ celular },
 		{ Authorization: obtenerToken() },
 	);
@@ -302,7 +302,7 @@ export const obtenerProveedor = async (id) => {
 export const actualizarProveedorEmpresa = async (id, empresa) => {
 	const { err } = await http_call(
 		`/proveedores/actualizar-empresa/${id}`,
-		'PATCH',
+		'PATCH',undefined,
 		{ empresa },
 		{ Authorization: obtenerToken() },
 	);
@@ -315,7 +315,7 @@ export const actualizarProveedorEmpresa = async (id, empresa) => {
 export const actualizarProveedorNombre = async (id, nombre) => {
 	const { err } = await http_call(
 		`/proveedores/actualizar-nombre/${id}`,
-		'PATCH',
+		'PATCH',undefined,
 		{ nombre },
 		{ Authorization: obtenerToken() },
 	);
@@ -328,7 +328,7 @@ export const actualizarProveedorNombre = async (id, nombre) => {
 export const actualizarProveedorCelular = async (id, celular) => {
 	const { err } = await http_call(
 		`/proveedores/actualizar-celular/${id}`,
-		'PATCH',
+		'PATCH',undefined,
 		{ celular },
 		{ Authorization: obtenerToken() },
 	);
@@ -341,7 +341,7 @@ export const actualizarProveedorCelular = async (id, celular) => {
 export const actualizarProveedorCorreo = async (id, correo) => {
 	const { err } = await http_call(
 		`/proveedores/actualizar-correo/${id}`,
-		'PATCH',
+		'PATCH',undefined,
 		{ correo },
 		{ Authorization: obtenerToken() },
 	);
@@ -442,7 +442,7 @@ export const obtenerProducto = (id) => {
 export const actualizarProductoProveedor = async (id, proveedor) => {
 		const { err } = await http_call(
 		`/productos/actualizar-proveedor/${id}`,
-		'PATCH',
+		'PATCH',undefined,
 		{ proveedor },
 		{ Authorization: obtenerToken() },
 	);
@@ -455,7 +455,7 @@ export const actualizarProductoProveedor = async (id, proveedor) => {
 export const actualizarProductoNombre = async (id, nombre) => {
 		const { err } = await http_call(
 		`/productos/actualizar-nombre/${id}`,
-		'PATCH',
+		'PATCH',undefined,
 		{ nombre },
 		{ Authorization: obtenerToken() },
 	);
@@ -468,7 +468,7 @@ export const actualizarProductoNombre = async (id, nombre) => {
 export const actualizarProductoPrecio = async (id, precio) => {
 		const { err } = await http_call(
 		`/productos/actualizar-precio/${id}`,
-		'PATCH',
+		'PATCH',undefined,
 		{ precio },
 		{ Authorization: obtenerToken() },
 	);
@@ -481,7 +481,7 @@ export const actualizarProductoPrecio = async (id, precio) => {
 export const actualizarProductoCantidad = async (id, cantidad) => {
 		const { err } = await http_call(
 		`/productos/actualizar-cantidad/${id}`,
-		'PATCH',
+		'PATCH',undefined,
 		{ cantidad },
 		{ Authorization: obtenerToken() },
 	);
@@ -494,7 +494,7 @@ export const actualizarProductoCantidad = async (id, cantidad) => {
 export const actualizarProductoCodigo = async (id, codigo) => {
 		const { err } = await http_call(
 		`/productos/actualizar-codigo/${id}`,
-		'PATCH',
+		'PATCH',undefined,
 		{ codigo },
 		{ Authorization: obtenerToken() },
 	);
@@ -570,7 +570,7 @@ export const obtenerFactura = async (id) => {
 export const actualizarFacturaAgregarProducto = async (id, id_producto) => {
 	const { err } = await http_call(
 		`/proveedores/agregar-producto/${id}`,
-		'PATCH',
+		'PATCH',undefined,
 		{ id_producto },
 		{ Authorization: obtenerToken() },
 	);
@@ -583,7 +583,7 @@ export const actualizarFacturaAgregarProducto = async (id, id_producto) => {
 export const actualizarFacturaRemoverProducto = async (id, id_producto) => {
 	const { err } = await http_call(
 		`/proveedores/remover-producto/${id}`,
-		'PATCH',
+		'PATCH',undefined,
 		{ id_producto },
 		{ Authorization: obtenerToken() },
 	);
@@ -596,7 +596,7 @@ export const actualizarFacturaRemoverProducto = async (id, id_producto) => {
 export const actualizarFacturaCambiarProductoCantidad = async (id, id_producto, cantidad) => {
 	const { err } = await http_call(
 		`/proveedores/cambiar-cantidad-producto/${id}`,
-		'PATCH',
+		'PATCH',undefined,
 		{ id_producto, cantidad },
 		{ Authorization: obtenerToken() },
 	);
@@ -610,7 +610,7 @@ export const actualizarFacturaCambiarProductoCantidad = async (id, id_producto, 
 export const actualizarFacturaNumero = async (id, numero) => {
 	const { err } = await http_call(
 		`/facturas/actualizar-Numero/${id}`,
-		'PATCH',
+		'PATCH',undefined,
 		{ numero },
 		{ Authorization: obtenerToken() },
 	);
@@ -626,7 +626,7 @@ export const actualizarFacturaFechaVencimiento = async (
 ) => {
 	const { err } = await http_call(
 		`/facturas/actualizar-Fecha-vencimiento/${id}`,
-		'PATCH',
+		'PATCH',undefined,
 		{ fecha_vencimiento },
 		{ Authorization: obtenerToken() },
 	);
@@ -641,7 +641,7 @@ export const actualizarFacturaFechaVencimiento = async (
 export const actualizarFacturaNota = async (id, nota) => {
 	const { err } = await http_call(
 		`/facturas/actualizar-Nota/${id}`,
-		'PATCH',
+		'PATCH',undefined,
 		{ nota },
 		{ Authorization: obtenerToken() },
 	);
@@ -654,7 +654,7 @@ export const actualizarFacturaNota = async (id, nota) => {
 export const actualizarFacturaCliente = async (id, cliente) => {
 	const { err } = await http_call(
 		`/facturas/actualizar-Cliente/${id}`,
-		'PATCH',
+		'PATCH',undefined,
 		{ cliente },
 		{ Authorization: obtenerToken() },
 	);
