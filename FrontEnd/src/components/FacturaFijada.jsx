@@ -10,10 +10,12 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { eliminarFactura } from '../services/conexionServidor';
 import { numberFormatter } from '../services/utils';
+import { useHistory } from 'react-router-dom';
 
 function FacturaFijada({ data, deselector }) {
 	const referenciaProducto = useRef(null);
 	const [useDetector, setDetector] = useState(true);
+	const history = useHistory();
 
 	useEffect(() => {
 		if (referenciaProducto === null || !useDetector) {
@@ -86,12 +88,7 @@ function FacturaFijada({ data, deselector }) {
 					<small>
 						<p className="card-text text-muted">
 							Por el valor de:{' '}
-							{numberFormatter(
-								data.productos.reduce(
-									(ac, val) => ac + val.valor * val.cantidad,
-									0,
-								),
-							)}
+							{onClick={() => history.push('/crear-producto',{id:data.id})}
 						</p>
 					</small>
 				</div>
