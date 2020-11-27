@@ -88,14 +88,19 @@ function FacturaFijada({ data, deselector }) {
 					<small>
 						<p className="card-text text-muted">
 							Por el valor de:{' '}
-							{onClick={() => history.push('/crear-producto',{id:data.id})}
+							{numberFormatter(
+								data.productos.reduce(
+									(ac, val) => ac + val.valor * val.cantidad,
+									0,
+								),
+							)}
 						</p>
 					</small>
 				</div>
 				<div>
 					<button
 						className="btn btn-light p-0 pr-4"
-						onClick={() => console.error('NOT IMPLEMENTED')}
+						onClick={() => history.push('/crear-Factura',{id:data.id})}
 					>
 						Actualizar
 					</button>
